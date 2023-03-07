@@ -1,0 +1,8 @@
+//config absolute imports: @ points to src
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}

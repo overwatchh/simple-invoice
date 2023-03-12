@@ -43,7 +43,7 @@ const Select: React.FC<TSelectProps> = ({
         render={({ field: { value, ref, onChange } }) => (
           <AntdSelect
             className="Select__antdSelect"
-            notFoundContent="Không tìm thấy"
+            notFoundContent="Not found"
             disabled={disabled}
             placeholder={placeHolder}
             allowClear

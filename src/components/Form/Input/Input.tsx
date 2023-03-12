@@ -3,12 +3,13 @@ import React from "react";
 import { useFormContext } from "react-hook-form";
 
 export type TInputProps = {
-  type: "text" | "number" | "textarea";
+  type: "text" | "textarea" | "password" | "email";
   name: string;
   id?: string;
   errorMessage?: string;
   keyValue?: string;
-  value?: string | number;
+  value?: string;
+  defaultValue?: string;
   required?: boolean;
 };
 
@@ -18,6 +19,7 @@ const Input: React.FC<TInputProps> = ({
   keyValue = "",
   id,
   errorMessage = "",
+  defaultValue = "",
   value,
   required = true,
 }) => {
@@ -29,6 +31,7 @@ const Input: React.FC<TInputProps> = ({
     <div className="Input">
       <input
         value={value}
+        defaultValue={defaultValue}
         autoComplete="off"
         className="Input__input"
         key={keyValue}

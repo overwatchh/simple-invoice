@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Layout, theme, Row, Col } from "antd";
+import { Layout, theme } from "antd";
 import Navbar from "@/components/Navbar";
 import { getItem } from "@/utils/localStorage";
 import { ELocalItem } from "@/utils/localStorage/types";

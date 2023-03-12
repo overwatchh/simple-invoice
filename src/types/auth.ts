@@ -6,3 +6,8 @@ export type Auth = {
   token_type: string;
   expires_in: number;
 };
+
+export type LoginInfo = {
+  username: string;
+  password: string;
+};

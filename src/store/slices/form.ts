@@ -1,5 +1,7 @@
-import { TForm } from "@/types/form";
+import { TForm } from "@/components/Form";
+import { DATE_FORMAT } from "@/constants";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import dayjs from "dayjs";
 import { FieldValues } from "react-hook-form";
 
 // Define a type for the slice state
@@ -16,6 +18,14 @@ export const formSlice = createSlice({
   initialState,
   reducers: {
     updateForm: (state, action: PayloadAction<TForm>) => {
+      if (action.payload.fields.hasOwnProperty("dateRange")) {
+        const fromDate: dayjs.Dayjs = action.payload.fields.dateRange[0];
+        const toDate: dayjs.Dayjs = action.payload.fields.dateRange[1];
+        action.payload.fields.dateRange = [
+          fromDate.format(DATE_FORMAT),
+          toDate.format(DATE_FORMAT),
+        ];
+      }
       state[action.payload.name] = action.payload.fields;
     },
   },

@@ -4,6 +4,7 @@ import { MenuInfo } from "rc-menu/lib/interface";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "./Navbar.config";
 import { PATH } from "@/constants";
+import { clearAuthInfo } from "@/utils/localStorage/auth";
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("1");
@@ -18,7 +19,11 @@ const Navbar = () => {
       case "1":
         navigate(PATH.INVOICE_CREATE);
         break;
-
+      case "2":
+        //trigger log user out by clearing AuthInfo and navigate user to login page
+        clearAuthInfo();
+        navigate(PATH.LOGIN);
+        break;
       default:
         navigate(PATH.HOME);
     }

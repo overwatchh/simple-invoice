@@ -1,17 +1,27 @@
 import { PATH } from "@/constants";
-import { UploadOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  FileDoneOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
 
 export const navItems = [
   {
-    icon: UploadOutlined,
+    icon: HomeOutlined,
     name: "Home",
     path: PATH.HOME,
     key: 0,
   },
   {
-    icon: UserOutlined,
+    icon: FileDoneOutlined,
     name: "Create invoice",
     path: PATH.INVOICE_CREATE,
     key: 1,
+  },
+  {
+    icon: LogoutOutlined,
+    name: "Log out",
+    path: PATH.LOGIN,
+    key: 2,
   },
 ];

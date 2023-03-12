@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "@/App";
 import { Provider as StoreProvider } from "react-redux";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./i18n";
 import { store } from "@/store";
 import reportWebVitals from "./reportWebVitals";
 
@@ -11,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <StoreProvider store={store}>
-      <App />
+      <I18nextProvider i18n={i18n}>
+        <App />
+      </I18nextProvider>
     </StoreProvider>
   </React.StrictMode>
 );

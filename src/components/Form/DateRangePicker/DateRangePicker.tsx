@@ -4,10 +4,10 @@ import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import { Controller, useFormContext } from "react-hook-form";
 import { RangeValue } from "rc-picker/lib/interface";
+import { DATE_FORMAT } from "@/constants";
 
 const { RangePicker } = DatePicker;
-const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
-
+const dateFormatList = [DATE_FORMAT, DATE_FORMAT];
 export type TDateRangePickerProps = {
   name: string;
   defaultValue: RangeValue<dayjs.Dayjs>;

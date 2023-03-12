@@ -4,11 +4,15 @@ import { NumericFormat } from "react-number-format";
 import { Controller, useFormContext } from "react-hook-form";
 
 export type TInputNumberFormatProps = {
+  defaultValue: number;
   name: string;
   id?: string;
 };
 
-const InputNumber: React.FC<TInputNumberFormatProps> = ({ name }) => {
+const InputNumber: React.FC<TInputNumberFormatProps> = ({
+  name,
+  defaultValue,
+}) => {
   const {
     formState: { errors },
   } = useFormContext();
@@ -22,13 +26,13 @@ const InputNumber: React.FC<TInputNumberFormatProps> = ({ name }) => {
               value={value}
               thousandSeparator
               getInputRef={ref}
+              defaultValue={defaultValue}
               onValueChange={({ floatValue }) => {
-                // if (floatValue && floatValue > 0) {
                 onChange(floatValue);
-                // }
               }}
             />
           )}
+          defaultValue={defaultValue}
           name={name}
           rules={{
             // required: { value: true, message: "Required" },

@@ -56,7 +56,6 @@ const InvoiceList = () => {
   };
   return (
     <div className="InvoiceList">
-      <div>{t("description.part1")}</div>
       <div className="InvoiceList__filter">
         <Form name="filterInvoiceForm" onSubmit={handleFilterInvoice}>
           <Row gutter={[16, 16]}>

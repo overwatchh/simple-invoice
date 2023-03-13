@@ -2,6 +2,7 @@
   "name": "simple-invoice",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "proxy": "https://sandbox.101digital.io",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",

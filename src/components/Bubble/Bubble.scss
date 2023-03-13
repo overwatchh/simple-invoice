@@ -1,0 +1,26 @@
+@import "../../style/main.scss";
+
+.Bubble {
+  border-radius: 2px;
+  padding: 8px;
+
+  &.success {
+    background-color: $success-background;
+    border: 1px solid $success-border;
+  }
+
+  &.error {
+    background-color: $error-background;
+    border: 1px solid $error-border;
+  }
+
+  &.info {
+    background-color: $info-background;
+    border: 1px solid $info-border;
+  }
+
+  &.warning {
+    background-color: $warning-background;
+    border: 1px solid $warning-border;
+  }
+}

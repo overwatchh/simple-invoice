@@ -16,8 +16,8 @@ export const rtkQueryErrorLogger: Middleware = () => (next) => (action) => {
         description: "You may need to login to use the application",
         placement: "topRight",
       });
-      //reloadPage to redirect to login after 3 s
-      // window.location.reload();
+      //reloadPage to redirect to login
+      window.location.reload();
     }
     const errorDescription =
       action.payload.data.error_description ??

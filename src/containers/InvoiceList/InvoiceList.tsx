@@ -1,7 +1,19 @@
+import "./InvoiceList.scss";
 import { useState } from "react";
 import { DateRangePicker, Form, Input } from "@/components/Form";
 import { useGetInvoiceQuery } from "@/services/invoice";
-import { Button, Pagination, PaginationProps, Spin } from "antd";
+import {
+  Row,
+  Col,
+  Button,
+  Pagination,
+  PaginationProps,
+  Spin,
+  Space,
+  Badge,
+} from "antd";
+import InvoiceItem from "./InvoiceItem";
+import Bubble from "@/components/Bubble";
 import dayjs from "dayjs";
 import { FieldValues } from "react-hook-form";
 import { InvoiceFilter } from "@/types/invoice";
@@ -23,6 +35,7 @@ const InvoiceList = () => {
   const { data, isFetching } = useGetInvoiceQuery(filter, {
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,
+    refetchOnFocus: true,
   });
   const handleFilterInvoice = (fieldValues: FieldValues) => {
     const newFilter: Pick<InvoiceFilter, "keyword" | "fromDate" | "toDate"> = {
@@ -40,36 +53,57 @@ const InvoiceList = () => {
     setFilter({ ...filter, pageNum: pageNumber, pageSize });
   };
   return (
-    <div>
-      <div className="InvoiceFilter">
+    <div className="InvoiceList">
+      <div className="InvoiceList__filter">
         <Form name="filterInvoiceForm" onSubmit={handleFilterInvoice}>
-          <div>Search:</div>
-          <Input required={false} type="text" name="keyword" />
-          <div>Date:</div>
-          <DateRangePicker
-            defaultValue={[dayjs().subtract(1, "month"), dayjs()]}
-            name="dateRange"
-          />
-          <Button disabled={isFetching} type="primary" htmlType="submit">
+          <Row gutter={[16, 16]}>
+            <Col md={12}>
+              <Space direction="vertical">
+                <div>Search:</div>
+                <Input required={false} type="text" name="keyword" />
+              </Space>
+            </Col>
+            <Col md={12}>
+              <Space direction="vertical">
+                <div>Date:</div>
+                <DateRangePicker
+                  defaultValue={[dayjs().subtract(1, "month"), dayjs()]}
+                  name="dateRange"
+                />
+              </Space>
+            </Col>
+          </Row>
+
+          <Button
+            className="InvoiceList__submitFilterBtn"
+            disabled={isFetching}
+            type="primary"
+            htmlType="submit"
+          >
             {isFetching ? <Spin /> : <span>Search</span>}
           </Button>
         </Form>
       </div>
-      {data && <div>Found: {data?.paging.totalRecords}</div>}
-      <ul className="InvoiceList">
-        {data?.data.map((invoice) => (
-          <li key={invoice.invoiceId}>
-            <div>Created date: {invoice.createdAt}</div>
-            <div>Invoice date: {invoice.invoiceDate}</div>
-            <div>Due date: {invoice.dueDate}</div>
-            <div>
-              Status: {invoice.status[0].key}:{invoice.status[0].value}
-            </div>
-            <div>Description: {invoice.description}</div>
-            <div>Total: {invoice.totalAmount}</div>
-          </li>
-        ))}
-      </ul>
+      {data && (
+        <div className="InvoiceList__numberRecords">
+          <Badge.Ribbon
+            color="red"
+            placement="start"
+            text={`Found ${data?.paging.totalRecords} invoices`}
+          ></Badge.Ribbon>
+        </div>
+      )}
+      <div className="InvoiceList__results">
+        <Row gutter={[16, 16]}>
+          {data?.data.map((invoice) => (
+            <Col md={24}>
+              <Bubble variant="info">
+                <InvoiceItem invoice={invoice} />
+              </Bubble>
+            </Col>
+          ))}
+        </Row>
+      </div>
       {data && data.paging.totalRecords > 0 && (
         <div className="InvoicePagination">
           <Pagination

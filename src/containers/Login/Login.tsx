@@ -10,7 +10,6 @@ import { ELocalItem } from "@/utils/localStorage/types";
 import { Button, Spin } from "antd";
 import { FieldValues } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import Bubble from "@/components/Bubble";
 const Login = () => {
   const [login, { data: authData, isSuccess: authSuccess, isLoading }] =
     useLoginMutation();

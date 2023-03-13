@@ -1,10 +1,13 @@
 # [Live demo](https://simple-invoice-93279.web.app/) 
 This project is deployed to firebase hosting
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+# Preview
+1. Login screenb <br />
+![image](https://user-images.githubusercontent.com/36781077/224722623-c598bccb-434d-4389-a2a2-58f49463c348.png)
+2. Create invoice screen
+![image](https://user-images.githubusercontent.com/36781077/224723456-9b43d54a-2efe-4fdd-a3af-ca670c4cac50.png)
+3. Create invoice screen
+![image](https://user-images.githubusercontent.com/36781077/224723599-ac6f9786-472c-4632-a11b-38e2d65f1eb0.png)
 ## Available Scripts
 
 In the project directory, you can run:

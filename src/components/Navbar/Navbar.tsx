@@ -5,8 +5,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "./Navbar.config";
 import { PATH } from "@/constants";
 import { clearAuthInfo } from "@/utils/localStorage/auth";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("1");
   const navigate = useNavigate();
   const location = useLocation();
@@ -53,7 +55,7 @@ const Navbar = () => {
         return {
           key: index,
           icon: <Icon />,
-          label: nav.name,
+          label: t(nav.name),
         };
       })}
     />

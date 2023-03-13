@@ -1,6 +1,7 @@
 import "./Input.scss";
 import React from "react";
 import { useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 export type TInputProps = {
   type: "text" | "textarea" | "password" | "email";
@@ -27,6 +28,7 @@ const Input: React.FC<TInputProps> = ({
     register,
     formState: { errors },
   } = useFormContext();
+  const { t } = useTranslation();
   return (
     <div className="Input">
       <input
@@ -38,7 +40,7 @@ const Input: React.FC<TInputProps> = ({
         type={type}
         id={id}
         {...register(name, {
-          required: { value: required, message: "Required" },
+          required: { value: required, message: t("form_validate.required") },
         })}
       />
       {(errors[name] || errorMessage) && (

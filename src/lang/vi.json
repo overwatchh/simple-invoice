@@ -1,5 +1,54 @@
 {
-  "translation": {
-    "Welcome to React": "Chao mừng đến với react"
+  "navbar": {
+    "item_home": "Trang chủ",
+    "item_create_invoice": "Tạo hóa đơn",
+    "item_log_out": "Đăng xuất"
+  },
+  "invoice_filter": {
+    "keyword_title": "Từ khóa",
+    "date_title": "Ngày",
+    "submit_btn": "Tìm kiếm"
+  },
+  "invoice_list": {
+    "found": "Tìm thấy",
+    "invoices": "hóa đơn"
+  },
+  "invoice_info": {
+    "invoice": "Hóa đơn",
+    "customer_name": "Tên khách hàng",
+    "created_date": "Ngày tạo",
+    "due_date": "Hạn chót",
+    "invoice_date": "Ngày hiệu lực",
+    "description": "Mô tả",
+    "total_amount": "Tổng tiền"
+  },
+  "form_create_invoice": {
+    "customer_info": "Thông tin khác hàng",
+    "first_name": "Tên",
+    "last_name": "Họ",
+    "email": "Email",
+    "mobile_number": "Số điện thoại",
+    "invoice_info": "Thông tin hóa đơn",
+    "invoice_date": "Ngày hiệu lức: ",
+    "due_date": "Hạn chót: ",
+    "product_name": "Tên sản phẩm",
+    "description": "Mô tả",
+    "price": "Giá",
+    "quantity": "Số lượng",
+    "create_invoice": "Tạo hóa đơn"
+  },
+  "form_login": {
+    "welcome_back": "Chào mừng!",
+    "user_name": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "login": "Đăng nhập"
+  },
+  "notification": {},
+  "form_validate": {
+    "required": "Bắt buộc"
+  },
+  "language": {
+    "english": "Tiếng Anh",
+    "vietnamese": "Tiếng Việt"
   }
 }

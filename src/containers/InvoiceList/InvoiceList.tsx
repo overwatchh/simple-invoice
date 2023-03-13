@@ -18,6 +18,7 @@ import dayjs from "dayjs";
 import { FieldValues } from "react-hook-form";
 import { InvoiceFilter } from "@/types/invoice";
 import { DATE_FORMAT } from "@/constants";
+import { useTranslation } from "react-i18next";
 
 const defaultFilter: InvoiceFilter = {
   pageNum: 1,
@@ -31,6 +32,7 @@ const defaultFilter: InvoiceFilter = {
 };
 
 const InvoiceList = () => {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState<InvoiceFilter>(defaultFilter);
   const { data, isFetching } = useGetInvoiceQuery(filter, {
     refetchOnMountOrArgChange: true,
@@ -54,18 +56,19 @@ const InvoiceList = () => {
   };
   return (
     <div className="InvoiceList">
+      <div>{t("description.part1")}</div>
       <div className="InvoiceList__filter">
         <Form name="filterInvoiceForm" onSubmit={handleFilterInvoice}>
           <Row gutter={[16, 16]}>
             <Col md={12}>
               <Space direction="vertical">
-                <div>Search:</div>
+                <div>{t("invoice_filter.keyword_title")}</div>
                 <Input required={false} type="text" name="keyword" />
               </Space>
             </Col>
             <Col md={12}>
               <Space direction="vertical">
-                <div>Date:</div>
+                <div>{t("invoice_filter.date_title")}</div>
                 <DateRangePicker
                   defaultValue={[dayjs().subtract(1, "month"), dayjs()]}
                   name="dateRange"
@@ -80,7 +83,11 @@ const InvoiceList = () => {
             type="primary"
             htmlType="submit"
           >
-            {isFetching ? <Spin /> : <span>Search</span>}
+            {isFetching ? (
+              <Spin />
+            ) : (
+              <span>{t("invoice_filter.submit_btn")}</span>
+            )}
           </Button>
         </Form>
       </div>
@@ -89,7 +96,9 @@ const InvoiceList = () => {
           <Badge.Ribbon
             color="red"
             placement="start"
-            text={`Found ${data?.paging.totalRecords} invoices`}
+            text={`${t("invoice_list.found")} ${data?.paging.totalRecords} ${t(
+              "invoice_list.invoices"
+            )}`}
           ></Badge.Ribbon>
         </div>
       )}

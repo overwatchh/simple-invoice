@@ -3,14 +3,15 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const langs = [
-  { nativeName: "English", code: "en" },
-  { nativeName: "Vietnamese", code: "vi" },
+  { nativeName: "language.english", code: "en" },
+  { nativeName: "language.vietnamese", code: "vi" },
 ];
 export enum LanguageCode {
   vi = "vi",
   en = "en",
 }
 const SelectLanguage = () => {
+  const { t } = useTranslation();
   const [langCode, setLangCode] = useState<LanguageCode>(LanguageCode.en);
   const { i18n } = useTranslation();
   const handleChangeLanguage = (e: RadioChangeEvent) => {
@@ -21,7 +22,7 @@ const SelectLanguage = () => {
   return (
     <Radio.Group value={langCode} onChange={handleChangeLanguage}>
       {langs.map((lang) => (
-        <Radio.Button value={lang.code}>{lang.nativeName}</Radio.Button>
+        <Radio.Button value={lang.code}>{t(lang.nativeName)}</Radio.Button>
       ))}
     </Radio.Group>
   );

@@ -1,6 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import enLanguge from "@/lang/en.json";
+import viLanguge from "@/lang/vi.json";
 
 i18n
   // detect user language
@@ -18,18 +20,10 @@ i18n
     },
     resources: {
       en: {
-        translation: {
-          description: {
-            part1: "Edit <1>src/App.js</1> and save to reload.",
-          },
-        },
+        translation: enLanguge,
       },
       vi: {
-        translation: {
-          description: {
-            part1: "Sửa <1>src/App.js</1> và lưu để tải lại.",
-          },
-        },
+        translation: viLanguge,
       },
     },
   });

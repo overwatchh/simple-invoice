@@ -8,19 +8,19 @@ import {
 export const navItems = [
   {
     icon: HomeOutlined,
-    name: "Home",
+    name: "navbar.item_home",
     path: PATH.HOME,
     key: 0,
   },
   {
     icon: FileDoneOutlined,
-    name: "Create invoice",
+    name: "navbar.item_create_invoice",
     path: PATH.INVOICE_CREATE,
     key: 1,
   },
   {
     icon: LogoutOutlined,
-    name: "Log out",
+    name: "navbar.item_log_out",
     path: PATH.LOGIN,
     key: 2,
   },

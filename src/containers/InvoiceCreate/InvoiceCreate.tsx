@@ -70,7 +70,7 @@ const InvoiceCreate = () => {
         <div className="CreateInvoiceForm__customerInfo">
           <div className="CreateInvoiceForm__sectionTitle">Customer info</div>
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>First name:</div>
                 <Input
@@ -80,7 +80,7 @@ const InvoiceCreate = () => {
                 />
               </Space>
             </Col>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>Last name:</div>
                 <Input
@@ -92,7 +92,7 @@ const InvoiceCreate = () => {
             </Col>
           </Row>
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>Email:</div>
                 <Input
@@ -102,7 +102,7 @@ const InvoiceCreate = () => {
                 />
               </Space>
             </Col>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>Mobile number:</div>
                 <Input
@@ -117,19 +117,19 @@ const InvoiceCreate = () => {
         <div className="CreateInvoiceForm__invoiceInfo">
           <div className="CreateInvoiceForm__sectionTitle">Invoice Info</div>
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space>
                 <div>Invoice Date: {invoiceDate}</div>
               </Space>
             </Col>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space>
-                <div>Invoice due date: {invoiceDueDate}</div>
+                <div>Due date: {invoiceDueDate}</div>
               </Space>
             </Col>
           </Row>
-          <Row gutter={[16, 16]}>
-            <Col lg={12} md={24}>
+          <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>Product name:</div>
                 <Input
@@ -139,7 +139,7 @@ const InvoiceCreate = () => {
                 />
               </Space>
             </Col>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>Description:</div>
                 <Input
@@ -151,7 +151,7 @@ const InvoiceCreate = () => {
             </Col>
           </Row>
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>Price:</div>
                 <InputNumber
@@ -163,7 +163,7 @@ const InvoiceCreate = () => {
                 />
               </Space>
             </Col>
-            <Col lg={12} md={24}>
+            <Col md={12}>
               <Space direction="vertical">
                 <div>Quantity:</div>
                 <InputNumber

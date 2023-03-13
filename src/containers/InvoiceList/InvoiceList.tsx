@@ -45,7 +45,6 @@ const InvoiceList = () => {
       fromDate: dayjs(fieldValues.dateRange[0]).format(DATE_FORMAT),
       toDate: dayjs(fieldValues.dateRange[1]).format(DATE_FORMAT),
     };
-    console.log("newFilter", newFilter);
     setFilter({ ...filter, ...newFilter });
   };
   const handlePaginationChange: PaginationProps["onChange"] = (

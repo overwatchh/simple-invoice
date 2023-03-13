@@ -1,3 +1,6 @@
+# [Live demo](https://simple-invoice-93279.web.app/) 
+This project is deployed to firebase hosting
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

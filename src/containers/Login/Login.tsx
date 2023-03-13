@@ -1,3 +1,5 @@
+import logoImg from "@/assets/101DigitalLogo.png";
+import "./Login.scss";
 import { useEffect } from "react";
 import { Form, Input } from "@/components/Form";
 import { useLoginMutation } from "@/services/auth";
@@ -8,6 +10,7 @@ import { ELocalItem } from "@/utils/localStorage/types";
 import { Button, Spin } from "antd";
 import { FieldValues } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Bubble from "@/components/Bubble";
 const Login = () => {
   const [login, { data: authData, isSuccess: authSuccess, isLoading }] =
     useLoginMutation();
@@ -46,22 +49,31 @@ const Login = () => {
   }, [profile, authData]);
 
   return (
-    <div>
-      <Form name="loginForm" onSubmit={handleLogin}>
-        <div>UserName:</div>
-        <Input required type="text" name="userName" />
-        <div>Password:</div>
-        <Input required type="password" name="password" />
-        <Button
-          className="LoginForm__submitBtn"
-          type="primary"
-          htmlType="submit"
-          disabled={isLoading}
-        >
-          {isLoading ? <Spin /> : <span>Login</span>}
-        </Button>
-      </Form>
-      {/* {authError && <div>{authError.data.error_description}</div>} */}
+    <div className="LoginForm">
+      <div className="LoginForm__wrapper">
+        <div className="LoginForm__logo">
+          <img src={logoImg} alt="101digital logo" />
+        </div>
+        <div className="LoginForm__welcome">Welcome back!</div>
+        <Form name="loginForm" onSubmit={handleLogin}>
+          <div className="LoginForm__label">User mame</div>
+          <div className="LoginForm__input">
+            <Input required type="text" name="userName" />
+          </div>
+          <div className="LoginForm__label">Password</div>
+          <div className="LoginForm__input">
+            <Input required type="password" name="password" />
+          </div>
+          <Button
+            className="LoginForm__submitBtn"
+            type="primary"
+            htmlType="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? <Spin /> : <span>Login</span>}
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 };

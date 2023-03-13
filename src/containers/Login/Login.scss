@@ -1,0 +1,33 @@
+.LoginForm {
+  position: relative;
+  &__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__welcome {
+    font-weight: bold;
+    margin: 12px 0;
+  }
+  &__logo {
+    height: 20px;
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__label {
+    margin-bottom: 4px;
+  }
+  &__input {
+    margin-bottom: 12px;
+  }
+  &__fields {
+    margin-bottom: 16px;
+  }
+}

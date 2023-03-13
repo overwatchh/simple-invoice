@@ -5,7 +5,7 @@ import { useForm, FormProvider, FieldValues } from "react-hook-form";
 
 export type TFormProps = {
   name: string;
-  children: JSX.Element[] | React.ReactNode[];
+  children: JSX.Element[] | React.ReactNode[] | JSX.Element;
   onSubmit: (fieldValues: FieldValues) => void;
 };
 

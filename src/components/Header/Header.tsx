@@ -1,6 +1,5 @@
 import "./Header.scss";
 import logoImg from "@/assets/101DigitalLogo.png";
-import { Row, Col } from "antd";
 import SelectLanguage from "@/components/SelectLanguage";
 
 const Header = () => {

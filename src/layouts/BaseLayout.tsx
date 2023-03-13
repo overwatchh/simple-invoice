@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import { getItem } from "@/utils/localStorage";
 import { ELocalItem } from "@/utils/localStorage/types";
 import { useNavigate } from "react-router-dom";
-import SelectLanguage from "@/components/SelectLanguage";
-const { Header, Content, Footer, Sider } = Layout;
+import Header from "@/components/Header";
+const { Header: HeaderWrapper, Content, Footer, Sider } = Layout;
 
 type BaseLayoutProps = {
   children: React.ReactNode;
@@ -25,23 +25,23 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
   return (
     <Layout>
       <Sider
-        breakpoint="lg"
+        breakpoint="md"
         collapsedWidth="0"
-        style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "fixed",
-          left: 0,
-          top: 0,
-          bottom: 0,
-        }}
+        // style={{
+        //   overflow: "auto",
+        //   height: "100vh",
+        //   position: "fixed",
+        //   left: 0,
+        //   top: 0,
+        //   bottom: 0,
+        // }}
       >
         <Navbar />
       </Sider>
-      <Layout style={{ marginLeft: 200 }}>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
-          <SelectLanguage />
-        </Header>
+      <Layout style={{ marginLeft: 0 }}>
+        <HeaderWrapper style={{ padding: 0, background: colorBgContainer }}>
+          <Header />
+        </HeaderWrapper>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{

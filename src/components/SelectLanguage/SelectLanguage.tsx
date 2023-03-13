@@ -1,4 +1,4 @@
-import { Row, Col, Radio, RadioChangeEvent } from "antd";
+import { Radio, RadioChangeEvent } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -19,15 +19,11 @@ const SelectLanguage = () => {
     i18n.changeLanguage(langCode);
   };
   return (
-    <Row justify="end">
-      <Col span={24}>
-        <Radio.Group value={langCode} onChange={handleChangeLanguage}>
-          {langs.map((lang) => (
-            <Radio.Button value={lang.code}>{lang.nativeName}</Radio.Button>
-          ))}
-        </Radio.Group>
-      </Col>
-    </Row>
+    <Radio.Group value={langCode} onChange={handleChangeLanguage}>
+      {langs.map((lang) => (
+        <Radio.Button value={lang.code}>{lang.nativeName}</Radio.Button>
+      ))}
+    </Radio.Group>
   );
 };
 

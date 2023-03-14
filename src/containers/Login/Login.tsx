@@ -55,13 +55,17 @@ const Login = () => {
         </div>
         <div className="LoginForm__welcome">Welcome back!</div>
         <Form name="loginForm" onSubmit={handleLogin}>
-          <div className="LoginForm__label">User mame</div>
+          <label htmlFor="userName" className="LoginForm__label">
+            Username
+          </label>
           <div className="LoginForm__input">
-            <Input required type="text" name="userName" />
+            <Input id="userName" required type="text" name="userName" />
           </div>
-          <div className="LoginForm__label">Password</div>
+          <label htmlFor="password" className="LoginForm__label">
+            Password
+          </label>
           <div className="LoginForm__input">
-            <Input required type="password" name="password" />
+            <Input id="password" required type="password" name="password" />
           </div>
           <Button
             className="LoginForm__submitBtn"

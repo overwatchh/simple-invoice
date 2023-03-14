@@ -2,7 +2,7 @@ import "./Header.scss";
 import logoImg from "@/assets/101DigitalLogo.png";
 import SelectLanguage from "@/components/SelectLanguage";
 
-const Header = () => {
+function Header() {
   return (
     <div className="Header">
       <div className="Header__logo">
@@ -13,6 +13,6 @@ const Header = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Header;

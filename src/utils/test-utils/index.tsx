@@ -3,7 +3,9 @@ import { render } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
 import type { PreloadedState } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
+import { Provider as StoreProvider } from "react-redux";
+import { I18nextProvider } from "react-i18next";
+import i18n from "@/i18n";
 import type { AppStore, RootState } from "@/store";
 // As a basic setup, import your same slice reducers
 import formReducer from "@/store/slices/form";
@@ -36,7 +38,11 @@ export function renderWithProviders(
   }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-    return <Provider store={store}>{children}</Provider>;
+    return (
+      <StoreProvider store={store}>
+        <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+      </StoreProvider>
+    );
   }
 
   // Return an object with the store and all of RTL's query functions

@@ -22,7 +22,9 @@ const SelectLanguage = () => {
   return (
     <Radio.Group value={langCode} onChange={handleChangeLanguage}>
       {langs.map((lang) => (
-        <Radio.Button value={lang.code}>{t(lang.nativeName)}</Radio.Button>
+        <Radio.Button key={lang.code} value={lang.code}>
+          {t(lang.nativeName)}
+        </Radio.Button>
       ))}
     </Radio.Group>
   );

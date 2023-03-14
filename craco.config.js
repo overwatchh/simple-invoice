@@ -13,6 +13,10 @@ module.exports = {
       moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
         prefix: "<rootDir>/",
       }),
+      collectCoverage: true,
+      collectCoverageFrom: ["**/*.{ts,tsx}"],
+      coverageDirectory: "./public/test-coverage",
+      coverageReporters: ["html"],
     },
   },
 };

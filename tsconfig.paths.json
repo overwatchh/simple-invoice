@@ -1,8 +1,8 @@
-//config absolute imports: @ points to src
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

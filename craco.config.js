@@ -15,8 +15,8 @@ module.exports = {
       }),
       collectCoverage: true,
       collectCoverageFrom: [
-        "src/components/**/*.{ts,tsx}",
-        "src/containers/**/*.{ts,tsx}",
+        "<rootDir>/src/components/**/*.{ts,tsx}",
+        "<rootDir>/src/containers/**/*.{ts,tsx}",
       ],
       testPathIgnorePatterns: ["<rootDir>/src/containers/Login"],
       coverageDirectory: "./public/test-coverage",

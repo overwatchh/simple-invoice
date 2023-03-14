@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from "react";
+import { BrowserRouter } from "react-router-dom";
 import { render } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
@@ -34,13 +35,16 @@ export function renderWithProviders(
       },
       preloadedState,
     }),
+
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return (
       <StoreProvider store={store}>
-        <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+        <I18nextProvider i18n={i18n}>
+          <BrowserRouter>{children}</BrowserRouter>
+        </I18nextProvider>
       </StoreProvider>
     );
   }

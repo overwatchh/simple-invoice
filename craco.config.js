@@ -14,7 +14,10 @@ module.exports = {
         prefix: "<rootDir>/",
       }),
       collectCoverage: true,
-      collectCoverageFrom: ["**/*.{ts,tsx}"],
+      collectCoverageFrom: [
+        "src/components/**/*.{ts,tsx}",
+        "src/containers/**/*.{ts,tsx}",
+      ],
       coverageDirectory: "./public/test-coverage",
       coverageReporters: ["html"],
     },

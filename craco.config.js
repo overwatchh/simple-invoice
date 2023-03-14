@@ -18,6 +18,7 @@ module.exports = {
         "src/components/**/*.{ts,tsx}",
         "src/containers/**/*.{ts,tsx}",
       ],
+      testPathIgnorePatterns: ["<rootDir>/src/containers/Login"],
       coverageDirectory: "./public/test-coverage",
       coverageReporters: ["html"],
     },

@@ -10,7 +10,7 @@ import formReducer from "@/store/slices/form";
 import { authApi } from "@/services/auth";
 import { profileApi } from "@/services/profile";
 import { invoiceApi } from "@/services/invoice";
-
+import { preloadedState as defaultPreloadedState } from "./index.config";
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
@@ -21,57 +21,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
 export function renderWithProviders(
   ui: React.ReactElement,
   {
-    preloadedState = {
-      form: {},
-      auth: {
-        queries: {},
-        mutations: {},
-        provided: {},
-        subscriptions: {},
-        config: {
-          online: true,
-          focused: true,
-          middlewareRegistered: true,
-          refetchOnFocus: false,
-          refetchOnReconnect: false,
-          refetchOnMountOrArgChange: false,
-          keepUnusedDataFor: 60,
-          reducerPath: "auth",
-        },
-      },
-      profile: {
-        queries: {},
-        mutations: {},
-        provided: {},
-        subscriptions: {},
-        config: {
-          online: true,
-          focused: true,
-          middlewareRegistered: true,
-          refetchOnFocus: false,
-          refetchOnReconnect: false,
-          refetchOnMountOrArgChange: false,
-          keepUnusedDataFor: 60,
-          reducerPath: "profile",
-        },
-      },
-      invoice: {
-        queries: {},
-        mutations: {},
-        provided: {},
-        subscriptions: {},
-        config: {
-          online: true,
-          focused: true,
-          middlewareRegistered: true,
-          refetchOnFocus: false,
-          refetchOnReconnect: false,
-          refetchOnMountOrArgChange: false,
-          keepUnusedDataFor: 60,
-          reducerPath: "invoice",
-        },
-      },
-    },
+    preloadedState = defaultPreloadedState,
     // Automatically create a store instance if no store was passed in
     store = configureStore({
       reducer: {

@@ -36,6 +36,8 @@ const InvoiceList = () => {
   const [filter, setFilter] = useState<InvoiceFilter>(defaultFilter);
   const { data, isFetching } = useGetInvoiceQuery(filter, {
     refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+    refetchOnFocus: true,
   });
   const handleFilterInvoice = (fieldValues: FieldValues) => {
     const newFilter: Pick<InvoiceFilter, "keyword" | "fromDate" | "toDate"> = {

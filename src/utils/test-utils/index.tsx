@@ -2,17 +2,11 @@ import React, { PropsWithChildren } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { render } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
-import { configureStore } from "@reduxjs/toolkit";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { Provider as StoreProvider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
-import type { AppStore, RootState } from "@/store";
-// As a basic setup, import your same slice reducers
-import formReducer from "@/store/slices/form";
-import { authApi } from "@/services/auth";
-import { profileApi } from "@/services/profile";
-import { invoiceApi } from "@/services/invoice";
+import { AppStore, RootState, store as defaultStore } from "@/store";
 import { preloadedState as defaultPreloadedState } from "./index.config";
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -26,16 +20,7 @@ export function renderWithProviders(
   {
     preloadedState = defaultPreloadedState,
     // Automatically create a store instance if no store was passed in
-    store = configureStore({
-      reducer: {
-        form: formReducer,
-        [authApi.reducerPath]: authApi.reducer,
-        [profileApi.reducerPath]: profileApi.reducer,
-        [invoiceApi.reducerPath]: invoiceApi.reducer,
-      },
-      preloadedState,
-    }),
-
+    store = defaultStore,
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) {

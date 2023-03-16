@@ -31,7 +31,11 @@ const Form: React.FC<TFormProps> = ({ children, onSubmit, name }) => {
   return (
     <div className="Form">
       <FormProvider {...methods}>
-        <form className={`.${name}`} onSubmit={methods.handleSubmit(onValid)}>
+        <form
+          name={name}
+          className={`.${name}`}
+          onSubmit={methods.handleSubmit(onValid)}
+        >
           {children}
         </form>
       </FormProvider>

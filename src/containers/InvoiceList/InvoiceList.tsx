@@ -49,7 +49,7 @@ const InvoiceList = () => {
       fromDate: dayjs(fieldValues.dateRange[0]).format(DATE_FORMAT),
       toDate: dayjs(fieldValues.dateRange[1]).format(DATE_FORMAT),
       sortBy: fieldValues.sortBy,
-      ordering: fieldValues.sortOder,
+      ordering: fieldValues.sortOrder,
     };
     setFilter({ ...filter, ...newFilter });
   };

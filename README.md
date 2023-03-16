@@ -1,6 +1,27 @@
 # [Live demo](https://simple-invoice-93279.web.app/) 
-This project is deployed to firebase hosting
-
+# Overview
+In short, my submission includes:
+- CI/CD flow set up using GitHub Actions.
+- The application is hosted on Firebase Hosting for easy testing and review.
+- Automated tests: Unit tests and e2e tests.
+   - To run unit tests: `npm run test`
+   - To run e2e tests: `npm run test:e2e`
+   - Test coverage can be viewed at [https://simple-invoice-93279.web.app/test-coverage/](https://simple-invoice-93279.web.app/test-coverage/)
+# Airchitecture explainations
+The application is separated into the following modules, which makes it maintainable and scalable:
+- /routers: Defines the routes of the application.
+- /types: Defines the general types used in the application.
+- /components: Includes the components used in the application. Each component will have the following structure and will be stored in - /components/ComponentName directory:
+  - ComponentName.scss: Stylesheet for the component.
+  - ComponentName.tsx: Code for the component.
+  - ComponentName.config.ts: Configuration belonging to the component, such as an array of available options for a dropdown or a default value for useState.
+  - index.ts: Exports the ComponentName from here.
+**API calls will not be made in components**, but in containers instead, which will be discussed right below.
+- /containers: Has the same folder structure as a component, but the main difference is that the trigger function to make API calls will be invoked here. One or more components will be used here to create a desired UI.
+- /layouts: Uses HOCs to define the layout for the application. These HOCs will be used to wrap containers and components.
+- /services: Defines API slices using RTK Query, a powerful data fetching and caching tool.
+- /styles: Defines general stylesheets such as color variables or mixins.
+- /utils: Utility functions will be defined here to use across the app.
 # Preview
 1. Login screenb <br />
 ![image](https://user-images.githubusercontent.com/36781077/224722623-c598bccb-434d-4389-a2a2-58f49463c348.png)
@@ -8,45 +29,3 @@ This project is deployed to firebase hosting
 ![image](https://user-images.githubusercontent.com/36781077/224723456-9b43d54a-2efe-4fdd-a3af-ca670c4cac50.png)
 3. Create invoice screen
 ![image](https://user-images.githubusercontent.com/36781077/224723599-ac6f9786-472c-4632-a11b-38e2d65f1eb0.png)
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

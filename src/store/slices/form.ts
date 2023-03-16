@@ -19,12 +19,19 @@ export const formSlice = createSlice({
   reducers: {
     updateForm: (state, action: PayloadAction<TForm>) => {
       if (action.payload.fields.hasOwnProperty("dateRange")) {
+        //convert dayjs to yyyy-mm-dd
         const fromDate: dayjs.Dayjs = action.payload.fields.dateRange[0];
         const toDate: dayjs.Dayjs = action.payload.fields.dateRange[1];
+        const invoiceDate: dayjs.Dayjs = action.payload.fields.invoiceDate;
+        const dueDate: dayjs.Dayjs = action.payload.fields.invoiceDate;
+        console.log("invoiceDate", action.payload.fields.invoicdeDte);
+        console.log("dueDate", action.payload.fields.dueDate);
         action.payload.fields.dateRange = [
           fromDate.format(DATE_FORMAT),
           toDate.format(DATE_FORMAT),
         ];
+        action.payload.fields.invoiceDate = invoiceDate.format(DATE_FORMAT);
+        action.payload.fields.dueDate = dueDate.format(DATE_FORMAT);
       }
       state[action.payload.name] = action.payload.fields;
     },

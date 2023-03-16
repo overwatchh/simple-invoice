@@ -9,10 +9,13 @@ import { InvoicePayload } from "@/types/invoice";
 import { Row, Col, Space, Button, Spin } from "antd";
 import { useTranslation } from "react-i18next";
 import DatePicker from "@/components/Form/DatePicker";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 const InvoiceCreate = () => {
   const { t } = useTranslation();
-  const [createInvoice, { isLoading }] = useCreateInvoiceMutation();
+  const [createInvoice, { isLoading, isSuccess }] = useCreateInvoiceMutation();
+  const navigate = useNavigate();
   const handleCreateInvoice = (fieldValues: FieldValues) => {
     const invoice: InvoicePayload = {
       invoices: [
@@ -60,6 +63,13 @@ const InvoiceCreate = () => {
 
     createInvoice(invoice);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      //navigate to invoice list
+      navigate("/");
+    }
+  }, [isSuccess, navigate]);
 
   return (
     <div className="CreateInvoiceForm">

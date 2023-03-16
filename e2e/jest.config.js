@@ -1,11 +1,13 @@
 module.exports = {
   preset: "jest-puppeteer",
   globals: {
-    URL: "http://localhost:3000",
+    URL: "https://simple-invoice-93279.web.app",
   },
-  testMatch: ["**/specs/*.ts"],
+  testMatch: ["**/specs/*e2e.test.ts"],
   transform: {
-    "\\.ts$": "react-scripts/config/jest/babelTransform",
+    "\\e2e.test.ts$": "react-scripts/config/jest/babelTransform",
   },
+  //2 minutes
+  testTimeout: 120000,
   verbose: true,
 };

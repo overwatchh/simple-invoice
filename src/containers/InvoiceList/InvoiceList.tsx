@@ -1,6 +1,6 @@
 import "./InvoiceList.scss";
 import { useState } from "react";
-import { DateRangePicker, Form, Input } from "@/components/Form";
+import { DateRangePicker, Form, Input, RadioGroup } from "@/components/Form";
 import { useGetInvoiceQuery } from "@/services/invoice";
 import {
   Row,
@@ -19,6 +19,7 @@ import { FieldValues } from "react-hook-form";
 import { InvoiceFilter } from "@/types/invoice";
 import { DATE_FORMAT } from "@/constants";
 import { useTranslation } from "react-i18next";
+import { sortBy, sortOrders } from "./InvoiceList.config";
 
 const defaultFilter: InvoiceFilter = {
   pageNum: 1,
@@ -40,10 +41,15 @@ const InvoiceList = () => {
     refetchOnFocus: true,
   });
   const handleFilterInvoice = (fieldValues: FieldValues) => {
-    const newFilter: Pick<InvoiceFilter, "keyword" | "fromDate" | "toDate"> = {
+    const newFilter: Pick<
+      InvoiceFilter,
+      "keyword" | "fromDate" | "toDate" | "sortBy" | "ordering"
+    > = {
       keyword: fieldValues.keyword,
       fromDate: dayjs(fieldValues.dateRange[0]).format(DATE_FORMAT),
       toDate: dayjs(fieldValues.dateRange[1]).format(DATE_FORMAT),
+      sortBy: fieldValues.sortBy,
+      ordering: fieldValues.sortOder,
     };
     setFilter({ ...filter, ...newFilter });
   };
@@ -60,16 +66,44 @@ const InvoiceList = () => {
           <Row gutter={[16, 16]}>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("invoice_filter.keyword_title")}</div>
-                <Input required={false} type="text" name="keyword" />
+                <label htmlFor="keyword">
+                  {t("invoice_filter.keyword_title")}
+                </label>
+                <Input
+                  id="keyword"
+                  required={false}
+                  type="text"
+                  name="keyword"
+                />
               </Space>
             </Col>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("invoice_filter.date_title")}</div>
+                <label htmlFor="dateRange">
+                  {t("invoice_filter.date_title")}
+                </label>
                 <DateRangePicker
+                  id="dateRange"
                   defaultValue={[dayjs().subtract(1, "month"), dayjs()]}
                   name="dateRange"
+                />
+              </Space>
+            </Col>
+            <Col md={12}>
+              <Space direction="vertical">
+                <label htmlFor="sortBy">{t("invoice_filter.sort_by")}</label>
+                <RadioGroup name="sortBy" id="sortBy" options={sortBy} />
+              </Space>
+            </Col>
+            <Col md={12}>
+              <Space direction="vertical">
+                <label htmlFor="sortOder">
+                  {t("invoice_filter.sort_order")}
+                </label>
+                <RadioGroup
+                  name="sortOrder"
+                  id="sortOrder"
+                  options={sortOrders}
                 />
               </Space>
             </Col>

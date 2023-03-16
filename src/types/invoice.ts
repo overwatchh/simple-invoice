@@ -50,7 +50,7 @@ export type InvoiceFilter = {
   pageNum: number;
   pageSize: number;
   dateType: "INVOICE_DATE";
-  sortBy: "CREATED_DATE";
+  sortBy: "CREATED_DATE" | "INVOICE_DATE";
   ordering: "ASCENDING" | "DESCENDING";
   fromDate: string;
   toDate: string;

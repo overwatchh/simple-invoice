@@ -6,7 +6,13 @@
   },
   "invoice_filter": {
     "keyword_title": "Từ khóa",
-    "date_title": "Ngày",
+    "date_title": "Ngày háo đơn",
+    "sort_order": "Thứ tự",
+    "sort_descending": "Giảm dần",
+    "sort_ascending": "Tăng dần",
+    "sort_by": "Tìm theo",
+    "sort_by_invoice_date": "Ngày hóa đơn",
+    "sort_by_created_date": "Ngày tạo",
     "submit_btn": "Tìm kiếm"
   },
   "invoice_list": {
@@ -29,7 +35,7 @@
     "email": "Email",
     "mobile_number": "Số điện thoại",
     "invoice_info": "Thông tin hóa đơn",
-    "invoice_date": "Ngày hiệu lức: ",
+    "invoice_date": "Ngày hiệu lực: ",
     "due_date": "Hạn chót: ",
     "product_name": "Tên sản phẩm",
     "description": "Mô tả",

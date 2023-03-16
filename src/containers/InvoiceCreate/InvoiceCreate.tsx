@@ -8,16 +8,11 @@ import { DATE_FORMAT } from "@/constants";
 import { InvoicePayload } from "@/types/invoice";
 import { Row, Col, Space, Button, Spin } from "antd";
 import { useTranslation } from "react-i18next";
+import DatePicker from "@/components/Form/DatePicker";
 
 const InvoiceCreate = () => {
   const { t } = useTranslation();
   const [createInvoice, { isLoading }] = useCreateInvoiceMutation();
-  const invoiceDate = dayjs(
-    faker.date.between("2023/01/01", "2023/12/31")
-  ).format(DATE_FORMAT);
-  const invoiceDueDate = dayjs(
-    faker.date.between("2023/01/01", "2024/12/31")
-  ).format(DATE_FORMAT);
   const handleCreateInvoice = (fieldValues: FieldValues) => {
     const invoice: InvoicePayload = {
       invoices: [
@@ -39,8 +34,8 @@ const InvoiceCreate = () => {
             max: 100000,
           })}`,
           currency: "USD",
-          invoiceDate,
-          dueDate: invoiceDueDate,
+          invoiceDate: dayjs(fieldValues.invoiceDate).format(DATE_FORMAT),
+          dueDate: dayjs(fieldValues.dueDate).format(DATE_FORMAT),
           description: fieldValues.description,
           customFields: [],
           extensions: [],
@@ -76,8 +71,11 @@ const InvoiceCreate = () => {
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.first_name")}</div>
+                <label htmlFor="firstName">
+                  {t("form_create_invoice.first_name")}
+                </label>
                 <Input
+                  id="firstName"
                   defaultValue={faker.name.firstName()}
                   name="firstName"
                   type="text"
@@ -86,8 +84,11 @@ const InvoiceCreate = () => {
             </Col>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.last_name")}</div>
+                <label htmlFor="lastName">
+                  {t("form_create_invoice.last_name")}
+                </label>
                 <Input
+                  id="lastName"
                   defaultValue={faker.name.lastName()}
                   name="lastName"
                   type="text"
@@ -98,8 +99,9 @@ const InvoiceCreate = () => {
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.email")}</div>
+                <label htmlFor="email">{t("form_create_invoice.email")}</label>
                 <Input
+                  id="email"
                   defaultValue={faker.internet.email()}
                   type="email"
                   name="email"
@@ -108,8 +110,11 @@ const InvoiceCreate = () => {
             </Col>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.mobile_number")}</div>
+                <label htmlFor="mobileNumber">
+                  {t("form_create_invoice.mobile_number")}
+                </label>
                 <Input
+                  id="mobileNumber"
                   defaultValue={faker.phone.number("+1#########")}
                   type="text"
                   name="mobileNumber"
@@ -122,25 +127,38 @@ const InvoiceCreate = () => {
           <div className="CreateInvoiceForm__sectionTitle">Invoice Info</div>
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
             <Col md={12}>
-              <Space>
-                <div>
-                  {t("form_create_invoice.invoice_date")} {invoiceDate}
-                </div>
+              <Space direction="vertical">
+                <label htmlFor="invoiceDate">
+                  {t("form_create_invoice.invoice_date")}
+                </label>
+                <DatePicker
+                  id="invoiceDate"
+                  name="invoiceDate"
+                  defaultValue={dayjs()}
+                />
               </Space>
             </Col>
             <Col md={12}>
-              <Space>
-                <div>
-                  {t("form_create_invoice.due_date")} {invoiceDueDate}
-                </div>
+              <Space direction="vertical">
+                <label htmlFor="dueDate">
+                  {t("form_create_invoice.due_date")}
+                </label>
+                <DatePicker
+                  id="dueDate"
+                  name="dueDate"
+                  defaultValue={dayjs()}
+                />
               </Space>
             </Col>
           </Row>
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.product_name")}</div>
+                <label htmlFor="productName">
+                  {t("form_create_invoice.product_name")}
+                </label>
                 <Input
+                  id="productName"
                   defaultValue={faker.commerce.productName()}
                   name="productName"
                   type="text"
@@ -149,8 +167,11 @@ const InvoiceCreate = () => {
             </Col>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.description")}</div>
+                <label htmlFor="description">
+                  {t("form_create_invoice.description")}
+                </label>
                 <Input
+                  id="description"
                   defaultValue={faker.commerce.productAdjective()}
                   name="description"
                   type="text"
@@ -161,8 +182,9 @@ const InvoiceCreate = () => {
           <Row className="CreateInvoiceForm__row" gutter={[16, 16]}>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.price")}</div>
+                <label htmlFor="price">{t("form_create_invoice.price")}</label>
                 <InputNumber
+                  id="price"
                   defaultValue={faker.datatype.number({
                     min: 50,
                     max: 100,
@@ -173,8 +195,11 @@ const InvoiceCreate = () => {
             </Col>
             <Col md={12}>
               <Space direction="vertical">
-                <div>{t("form_create_invoice.quantity")}</div>
+                <label htmlFor="quantity">
+                  {t("form_create_invoice.quantity")}
+                </label>
                 <InputNumber
+                  id="quantity"
                   defaultValue={faker.datatype.number({ min: 1, max: 10 })}
                   name="quantity"
                 />

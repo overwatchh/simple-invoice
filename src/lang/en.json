@@ -6,7 +6,13 @@
   },
   "invoice_filter": {
     "keyword_title": "Keyword",
-    "date_title": "Date",
+    "date_title": "Invoice date",
+    "sort_order": "Order",
+    "sort_descending": "Descending",
+    "sort_ascending": "Ascending",
+    "sort_by": "Sort by",
+    "sort_by_invoice_date": "Invoice date",
+    "sort_by_created_date": "Created date",
     "submit_btn": "Search"
   },
   "invoice_list": {

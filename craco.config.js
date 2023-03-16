@@ -6,6 +6,7 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
+    proxy: "https://sandbox.101digital.io",
   },
   jest: {
     configure: {

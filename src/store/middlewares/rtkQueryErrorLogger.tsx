@@ -31,9 +31,18 @@ export const rtkQueryErrorLogger: Middleware = () => (next) => (action) => {
   }
   if (isFulfilled(action)) {
     //display notification when login success
+    console.log("action", action);
     if (action.type === "profile/executeQuery/fulfilled") {
       notification.success({
         message: "Logged in successfully",
+        description: action.payload.status.message,
+        placement: "topRight",
+      });
+    }
+    //create invoice successfully
+    if (action.type === "invoice/executeMutation/fulfilled") {
+      notification.success({
+        message: "Create invoice successfully",
         description: action.payload.status.message,
         placement: "topRight",
       });

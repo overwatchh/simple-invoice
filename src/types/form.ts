@@ -9,3 +9,8 @@ export type LoginFormField = {
   userName: string;
   password: string;
 };
+
+export type TOption = {
+  name: string;
+  value: string;
+};

@@ -11,11 +11,13 @@ const dateFormatList = [DATE_FORMAT, DATE_FORMAT];
 export type TDateRangePickerProps = {
   name: string;
   defaultValue: RangeValue<dayjs.Dayjs>;
+  id?: string;
 };
 
 const DateRangePicker: React.FC<TDateRangePickerProps> = ({
   name,
   defaultValue,
+  id,
 }) => {
   const {
     formState: { errors },
@@ -25,6 +27,7 @@ const DateRangePicker: React.FC<TDateRangePickerProps> = ({
       <Controller
         render={({ field: { value, ref, onChange } }) => (
           <RangePicker
+            id={id}
             onChange={onChange}
             value={value}
             ref={ref}

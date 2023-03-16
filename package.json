@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
-  "proxy": "https://sandbox.101digital.io",
   "cracoConfig": "craco.config.js",
   "dependencies": {
     "@craco/craco": "^7.1.0",

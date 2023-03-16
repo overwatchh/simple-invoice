@@ -4,6 +4,7 @@
   "private": true,
   "homepage": ".",
   "cracoConfig": "craco.config.js",
+  "proxy": "https://sandbox.101digital.io",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@reduxjs/toolkit": "^1.9.3",

@@ -1,12 +1,20 @@
 # [Live demo](https://simple-invoice-93279.web.app/) 
 # Overview
-In short, my submission includes:
+**In short, my submission includes:**
 - CI/CD flow set up using GitHub Actions. 
 - The application is hosted on Firebase Hosting for easy testing and review. However, the POST request to create an invoice is facing CORS policy issues in the production environment. It only works on the local machine.
 - Automated tests: Unit tests and e2e tests.
    - To run unit tests: `npm run test`
    - To run e2e tests: `npm run test:e2e`
    - Test coverage can be viewed at [https://simple-invoice-93279.web.app/test-coverage/](https://simple-invoice-93279.web.app/test-coverage/)
+   
+**Libraries that i used:**
+- State management: @reduxjs/toolkit. I used it to manage loading status and take the advantages of RTK query.
+- Form: react-hook-form.  I have created fully customizable, scalable, and reusable form components to be used throughout the application. Whenever a form is submitted, the form inputs are synced with Redux, making room for future needs. Complex validation can be easily implemented in the future using libraries such as Yup.
+- Testing: 
+   - jest: I used jest to write unit tests.
+   - jest-puppeteer: I used Jest Puppeteer to write end-to-end (e2e) tests. The library makes it much easier and the code much cleaner to write e2e tests compared to using Puppeteer alone.
+- Development environment: I set up absolute imports using Craco to avoid the nightmare of relative imports.
 # Airchitecture explainations
 The application is separated into the following modules, which makes it maintainable and scalable:
 - /routers: Defines the routes of the application.

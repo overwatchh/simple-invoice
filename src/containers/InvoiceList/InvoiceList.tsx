@@ -137,7 +137,7 @@ const InvoiceList = () => {
       <div className="InvoiceList__results">
         <Row gutter={[16, 16]}>
           {data?.data.map((invoice) => (
-            <Col md={24}>
+            <Col key={invoice.invoiceId} md={24}>
               <Bubble variant="info">
                 <InvoiceItem invoice={invoice} />
               </Bubble>

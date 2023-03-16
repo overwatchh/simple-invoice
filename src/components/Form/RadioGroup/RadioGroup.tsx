@@ -19,7 +19,9 @@ const RadioGroup: React.FC<TRadioGroupProps> = ({ name, options, id }) => {
         render={({ field: { value, ref, onChange } }) => (
           <Radio.Group id={id} value={value} onChange={onChange} ref={ref}>
             {options.map((option) => (
-              <Radio value={option.value}>{t(option.name)}</Radio>
+              <Radio key={option.value} value={option.value}>
+                {t(option.name)}
+              </Radio>
             ))}
           </Radio.Group>
         )}

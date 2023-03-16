@@ -42,7 +42,7 @@
     "predeploy": "CI=false && npm run build",
     "build": "craco build",
     "test": "craco test",
-    "test:e2e": "cd e2e && jest --runInBand --testTimeout 5000",
+    "test:e2e": "cd e2e && jest --testTimeout 50000",
     "eject": "craco eject"
   },
   "eslintConfig": {

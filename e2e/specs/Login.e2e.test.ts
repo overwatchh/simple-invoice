@@ -1,6 +1,6 @@
 describe("Login", () => {
   beforeAll(async () => {
-    await page.goto("https://simple-invoice-93279.web.app/login");
+    await page.goto("http://localhost:3000/login");
   });
 
   it('Should show "Required" error messages', async () => {

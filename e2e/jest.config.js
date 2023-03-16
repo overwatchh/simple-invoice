@@ -1,7 +1,7 @@
 module.exports = {
   preset: "jest-puppeteer",
   globals: {
-    URL: "https://simple-invoice-93279.web.app",
+    URL: "http://localhost:3000",
   },
   testMatch: ["**/specs/*e2e.test.ts"],
   transform: {

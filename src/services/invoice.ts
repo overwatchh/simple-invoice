@@ -15,7 +15,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const invoiceApi = createApi({
   reducerPath: "invoice",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.REACT_APP_BASE_URL}/invoice-service`,
+    baseUrl: `/invoice-service`,
     prepareHeaders: (headers) => {
       const orgToken = getItem<Membership>(ELocalItem.Membership)?.token;
       const accessToken = getItem<Auth>(ELocalItem.Auth)?.access_token;

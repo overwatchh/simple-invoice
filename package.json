@@ -4,7 +4,6 @@
   "private": true,
   "homepage": ".",
   "cracoConfig": "craco.config.js",
-  "proxy": "https://sandbox.101digital.io",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@reduxjs/toolkit": "^1.9.3",
@@ -22,6 +21,7 @@
     "dayjs": "^1.11.7",
     "expect": "^29.5.0",
     "firebase": "^9.17.2",
+    "http-proxy-middleware": "^2.0.6",
     "i18next": "^22.4.11",
     "i18next-browser-languagedetector": "^7.0.1",
     "node-sass": "^7.0.1",

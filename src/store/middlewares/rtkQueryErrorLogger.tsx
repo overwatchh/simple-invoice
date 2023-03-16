@@ -43,7 +43,7 @@ export const rtkQueryErrorLogger: Middleware = () => (next) => (action) => {
     if (action.type === "invoice/executeMutation/fulfilled") {
       notification.success({
         message: "Create invoice successfully",
-        description: action.payload.status.message,
+        description: "Your invoice was created successfully",
         placement: "topRight",
       });
     }

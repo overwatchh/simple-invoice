@@ -39,6 +39,9 @@ export const invoiceApi = createApi({
       query: (invoicePayload) => ({
         url: "/2.0.0/invoices",
         method: "post",
+        headers: {
+          "Operation-Mode": "SYNC",
+        },
         body: invoicePayload,
       }),
     }),

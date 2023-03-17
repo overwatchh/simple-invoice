@@ -2,7 +2,7 @@
 # Overview
 **In short, my submission includes:**
 - CI/CD flow set up using GitHub Actions. 
-- The application is hosted on Firebase Hosting for easy testing and review. However, the POST request to create an invoice is facing CORS policy issues in the production environment. It only works on the local machine.
+- The application is hosted on Firebase Hosting for easy testing and review
 - Automated tests: Unit tests and e2e tests.
    - To run unit tests: `npm run test`
    - To run e2e tests: `npm run test:e2e`
